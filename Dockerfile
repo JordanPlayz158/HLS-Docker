@@ -36,7 +36,6 @@ COPY favicon.ico /mnt/favicon.ico
 
 # Exposing needed ports
 EXPOSE 1935
-EXPOSE 8080
 EXPOSE 80
 
 # Making /mnt volume for persistant data
