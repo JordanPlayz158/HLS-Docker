@@ -16,7 +16,7 @@ services:
         build:
             context: ./Chat
         ports:
-            - 3001:3000
+            - 3001:3001
     rtmp:
         build:
             context: ./RTMP

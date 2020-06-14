@@ -7,6 +7,6 @@ RUN npm install
 COPY index.html index.html
 COPY index.js index.js
 
-EXPOSE 3000
+EXPOSE 3001
 
 CMD ["npm", "start"]
