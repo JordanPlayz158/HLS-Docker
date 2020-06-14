@@ -22,7 +22,7 @@ RUN apk add --no-cache g++ make pcre-dev openssl-dev zlib-dev
 
 # Compiling NGINX from source
 RUN cd nginx-${NGINX_VERSION} && \
-    ./configure --prefix=/usr/local/nginx --conf-path=/etc/nginx/nginx.conf --with-http_ssl_module --add-module=../nginx-rtmp-module && \
+    ./configure --prefix=/usr/local/nginx --conf-path=/etc/nginx/nginx.conf --add-module=../nginx-rtmp-module && \
     make -j && \
     make install
 
@@ -31,12 +31,9 @@ RUN mkdir /mnt/hls
 
 # Copying needed files
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY index.html /mnt/index.html
-COPY favicon.ico /mnt/favicon.ico
 
 # Exposing needed ports
 EXPOSE 1935
-EXPOSE 80
 
 # Making /mnt volume for persistant data
 VOLUME ["/mnt"]

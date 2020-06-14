@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+    web:
+        build:
+            context: ./Web
+        ports:
+            - 8083:80
+        volumes:
+            - ./HLS:/mnt
+        depends_on:
+            - rtmp
+            - chat
+        networks:
+            HLS: {}
+    chat:
+        build:
+            context: ./Chat
+        ports:
+            - 3001:3000
+    rtmp:
+        build:
+            context: ./RTMP
+        ports:
+            - 1935:1935
+        volumes:
+            - ./HLS:/mnt
+
+networks:
+    HLS:
